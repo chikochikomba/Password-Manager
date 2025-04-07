@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - Password Manager</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+<div class="container mt-5">
+    <h2>Your Saved Passwords</h2>
+    <a href="/add_password" class="btn btn-primary mb-3">Add New</a>
+    <a href="/logout" class="btn btn-secondary mb-3 float-end">Logout</a>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Service</th>
+                <th>Login</th>
+                <th>Password</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in passwords %}
+            <tr>
+                <td>{{ p.service_name }}</td>
+                <td>{{ p.login }}</td>
+                <td>{{ password_manager.decrypt_password(p.password) }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="3" class="text-center">No passwords added yet.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

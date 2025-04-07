@@ -31,13 +31,9 @@ Password Manager is a secure and user-friendly application designed to help indi
 
 3. **Install Dependencies** : pip isntall -r requirements.txt
 
-4. **Set Up the Database**: Initialize the SQLite database:
-   *bash*
-   flask db init
-   flask db migrate -m "Initial migration."
-   flask db upgrade
+4. Run the app : python app.py
    
---Usage--
+**--Usage--**
 
 **Access the Application**: *Open your web browser and navigate to http://127.0.0.1:5000*
 
@@ -50,3 +46,11 @@ Password Manager is a secure and user-friendly application designed to help indi
 Generate Passwords: *Utilize the password generator to create strong passwords tailored to your preferences.*
 
 View Stored Credentials: *Access and manage your stored usernames and passwords from the dashboard*
+
+![Repo Size](https://img.shields.io/github/repo-size/chikochikomba/Password-Manager)
+![Last Commit](https://img.shields.io/github/last-commit/chikochikomba/Password-Manager)
+![Issues](https://img.shields.io/github/issues/chikochikomba/Password-Manager)
+![Forks](https://img.shields.io/github/forks/chikochikomba/Password-Manager?style=social)
+![Stars](https://img.shields.io/github/stars/chikochikomba/Password-Manager?style=social)
+![Python Version](https://img.shields.io/badge/python-3.11%2B-blue)
+

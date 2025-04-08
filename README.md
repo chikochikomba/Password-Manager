@@ -1,56 +1,111 @@
-# Password Manager
+ ## 🔒 Secure Password Manager
+ 
+A secure, Flask-based web application for storing, generating, and managing passwords with strong encryption to protect user credentials.
 
 ## Overview
+The Secure Password Manager is a user-friendly and robust web application designed to help individuals securely store and manage their passwords. Built using the Flask framework, this application integrates encryption mechanisms to ensure that all user credentials are stored safely.
 
-Password Manager is a secure and user-friendly application designed to help individuals store and manage their passwords efficiently. Built with Flask, it offers encryption features to ensure that users' credentials are protected.
+## Key Features
+**Master Password Authentication:** Users authenticate via a master password to securely access stored credentials.
 
-## Features
+**Password Storage:** Safely store usernames and passwords for various services, all encrypted.
 
-- **Master Password Authentication**: Users authenticate using a master password to access their stored credentials.
-- **Password Storage**: Securely store usernames and passwords for various services.
-- **Password Generation**: Generate strong, customizable passwords with options to adjust length and include symbols, numbers, or special characters.
-- **User Management**: Add, view, update, and delete stored credentials.
-- **Encryption**: All stored passwords are encrypted using the `cryptography` library to ensure data security.
+**Password Generation:** Generate strong, customizable passwords with adjustable length and options to include symbols, numbers, or special characters.
+
+**User Management:** Add, view, update, and delete stored credentials with ease.
+
+**Eryption:** Passwords are encrypted using the cryptography library, ensuring data security at rest.
 
 ## Screenshots
 
-![Login Page](Screenshots/loginpage.png)
 
 
-![Dashboard](Screenshots/dashboard.png)
 
-![Add Password Page](Screenshots/addpassword.png)
 
-## Installation
 
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/your-username/Password-Manager.git
+## Setup Instructions
 
-2. **Navigate to the project directory**: cd password-manager
+1. Clone the Repository
 
-3. **Install Dependencies** : pip isntall -r requirements.txt
+       git clone https://github.com/yourusername/secure-password-manager.git
+       cd secure-password-manager
 
-4. Run the app : python app.py
+3. Create and Activate Virtual Environment
+
+       python -m venv venv
+       source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+3. Install Dependencies
+
+       pip install -r requirements.txt
    
-**--Usage--**
+5. Initialize the Database
 
-**Access the Application**: *Open your web browser and navigate to http://127.0.0.1:5000*
+       python init_db.py
 
-**Authenticate**: *Enter your master password to access the dashboard*.
+## Usage
+1. Start the Development Server
+ 
+       python app.py
 
-**Manage Passwords**:
+   
+3. Access the Application
+   
+       Navigate to  http://127.0.0.1:5000 in your browser.
 
-**Add New Credentials**: *Use the "Add Password" feature to store new credentials*.
+5. First-Time Setup
+   
+       Register a new account.
 
-Generate Passwords: *Utilize the password generator to create strong passwords tailored to your preferences.*
+       Log in with your credentials.
 
-View Stored Credentials: *Access and manage your stored usernames and passwords from the dashboard*
+       Start adding and managing your passwords securely.
 
-![Repo Size](https://img.shields.io/github/repo-size/chikochikomba/Password-Manager)
-![Last Commit](https://img.shields.io/github/last-commit/chikochikomba/Password-Manager)
-![Issues](https://img.shields.io/github/issues/chikochikomba/Password-Manager)
-![Forks](https://img.shields.io/github/forks/chikochikomba/Password-Manager?style=social)
-![Stars](https://img.shields.io/github/stars/chikochikomba/Password-Manager?style=social)
-![Python Version](https://img.shields.io/badge/python-3.11%2B-blue)
+## 🔧 Configuration
 
+Set up optional environment variables for enhanced customization:
+
+    export SECRET_KEY='your-very-secret-key'
+    export DATABASE_URL='sqlite:///production.db'
+    export ENCRYPTION_KEY='your-encryption-key'
+
+## 📂 Project Structure
+
+    secure-password-manager/
+    ├── app.py                # Main application entry point
+    ├── config.py             # Configuration settings
+    ├── models.py             # Database models
+    ├── password_manager.py   # Encryption and decryption logic
+    ├── utilities.py          # Password generation utilities
+    ├── requirements.txt      # Project dependencies
+    ├── init_db.py            # Database initialization script
+    ├── static/               # Static files (CSS, JavaScript)
+    └── templates/            # HTML templates for views
+       ├── login.html
+       ├── register.html
+       ├── dashboard.html
+       └── add_password.html
+       
+## 🛡️ Security Features
+Fernet Encryption: Implements AES-128-CBC with HMAC-SHA256 for secure password storage.
+
+PBKDF2 Password Hashing: Uses salt to securely hash user passwords.
+
+Session Management: Secure handling of user sessions.
+
+CSRF Protection: Enabled via Flask-WTF to prevent cross-site request forgery attacks.
+
+Password Complexity Enforcement: Ensures the creation of strong passwords through customizable rules.
+
+## 🤝 Contributing
+Contributions are always welcome! Please follow these steps to contribute:
+
+Fork the Repository.
+
+Create a New Branch: git checkout -b feature-branch.
+
+Commit Your Changes: git commit -am 'Add new feature'.
+
+Push to the Branch: git push origin feature-branch.
+
+Create a Pull Request with a description of the changes.

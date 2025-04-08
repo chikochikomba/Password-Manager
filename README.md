@@ -72,6 +72,8 @@ Set up optional environment variables for enhanced customization:
 ## 📂 Project Structure
 
     secure-password-manager/
+    ├── LICENSE
+    ├── gitignore
     ├── app.py                # Main application entry point
     ├── config.py             # Configuration settings
     ├── models.py             # Database models
@@ -87,6 +89,7 @@ Set up optional environment variables for enhanced customization:
        └── add_password.html
        
 ## 🛡️ Security Features
+
 Fernet Encryption: Implements AES-128-CBC with HMAC-SHA256 for secure password storage.
 
 PBKDF2 Password Hashing: Uses salt to securely hash user passwords.
@@ -97,15 +100,6 @@ CSRF Protection: Enabled via Flask-WTF to prevent cross-site request forgery att
 
 Password Complexity Enforcement: Ensures the creation of strong passwords through customizable rules.
 
-## 🤝 Contributing
-Contributions are always welcome! Please follow these steps to contribute:
+## 📜 License
 
-Fork the Repository.
-
-Create a New Branch: git checkout -b feature-branch.
-
-Commit Your Changes: git commit -am 'Add new feature'.
-
-Push to the Branch: git push origin feature-branch.
-
-Create a Pull Request with a description of the changes.
+MIT License - See [LICENSE](LICENSE) for details.

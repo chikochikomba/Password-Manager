@@ -17,10 +17,10 @@ The Secure Password Manager is a user-friendly and robust web application design
 **Eryption:** Passwords are encrypted using the cryptography library, ensuring data security at rest.
 
 ## Screenshots
-![LOGPAGE](Screenshots/loginpage.png)
 ![2](Screenshots/registerpage.png)
-![3](Screenshots/addpasswordpage.png)
+![LOGPAGE](Screenshots/loginpage.png)
 ![4](Screenshots/userdashboard.png)
+![3](Screenshots/addpasswordpage.png)
 ![4](Screenshots/dashboardwithpassword.png)
 
 

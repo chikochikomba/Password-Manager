@@ -93,15 +93,15 @@ Set up optional environment variables for enhanced customization:
        
 ## 🛡️ Security Features
 
-Fernet Encryption: Implements AES-128-CBC with HMAC-SHA256 for secure password storage.
+***Fernet Encryption:*** Implements AES-128-CBC with HMAC-SHA256 for secure password storage.
 
-PBKDF2 Password Hashing: Uses salt to securely hash user passwords.
+***PBKDF2 Password Hashing:*** Uses salt to securely hash user passwords.
 
-Session Management: Secure handling of user sessions.
+***Session Management:*** Secure handling of user sessions.
 
-CSRF Protection: Enabled via Flask-WTF to prevent cross-site request forgery attacks.
+***CSRF Protection:*** Enabled via Flask-WTF to prevent cross-site request forgery attacks.
 
-Password Complexity Enforcement: Ensures the creation of strong passwords through customizable rules.
+***Password Complexity Enforcement:*** Ensures the creation of strong passwords through customizable rules.
 
 ## 📜 License
 

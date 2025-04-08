@@ -8,31 +8,58 @@
 <body class="bg-light">
 <div class="container mt-5">
     <h2>Your Saved Passwords</h2>
-    <a href="/add_password" class="btn btn-primary mb-3">Add New</a>
+    <a href="/add-password" class="btn btn-primary mb-3">Add New</a>
     <a href="/logout" class="btn btn-secondary mb-3 float-end">Logout</a>
 
     <table class="table table-bordered">
         <thead>
             <tr>
                 <th>Service</th>
-                <th>Login</th>
                 <th>Password</th>
             </tr>
         </thead>
         <tbody>
             {% for p in passwords %}
             <tr>
-                <td>{{ p.service_name }}</td>
-                <td>{{ p.login }}</td>
-                <td>{{ password_manager.decrypt_password(p.password) }}</td>
+                <td>{{ p.service }}</td>
+                <td>
+                    <span class="password-placeholder">••••••••</span>
+                    <span class="actual-password" style="display:none">{{ p.password }}</span>
+                    <button onclick="togglePassword(this)" class="btn btn-sm btn-outline-secondary">Show</button>
+                </td>
             </tr>
             {% else %}
             <tr>
-                <td colspan="3" class="text-center">No passwords added yet.</td>
+                <td colspan="2" class="text-center">No passwords added yet.</td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
 </div>
+
+<script>
+function togglePassword(button) {
+    const row = button.closest('tr');
+    const placeholder = row.querySelector('.password-placeholder');
+    const actualPassword = row.querySelector('.actual-password');
+    
+    if (placeholder.style.display === 'none') {
+        placeholder.style.display = 'inline';
+        actualPassword.style.display = 'none';
+        button.textContent = 'Show';
+    } else {
+        placeholder.style.display = 'none';
+        actualPassword.style.display = 'inline';
+        button.textContent = 'Hide';
+        setTimeout(() => {
+            if (actualPassword.style.display === 'inline') {
+                placeholder.style.display = 'inline';
+                actualPassword.style.display = 'none';
+                button.textContent = 'Show';
+            }
+        }, 10000);
+    }
+}
+</script>
 </body>
 </html>

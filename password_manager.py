@@ -1,23 +1,23 @@
-import bcrypt
 from cryptography.fernet import Fernet
+from cryptography.hazmat.backends import default_backend
+from cryptography.hazmat.primitives import hashes
+from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 import base64
 import os
 
 class PasswordManager:
     def __init__(self, key=None):
-        if key is None:
-            key = base64.urlsafe_b64encode(os.urandom(32))
-        self.key = key
-        self.cipher_suite = Fernet(self.key)
+        if isinstance(key, str):
+            key = key.encode()
+        self.cipher_suite = Fernet(key)
 
-    def hash_password(self, password):
-        return bcrypt.hashpw(password.encode(), bcrypt.gensalt())
-
-    def verify_password(self, password, hashed):
-        return bcrypt.checkpw(password.encode(), hashed)
-
-    def encrypt_password(self, plain_password):
-        return self.cipher_suite.encrypt(plain_password.encode())
+    def encrypt_password(self, password):
+        if isinstance(password, str):
+            password = password.encode()
+        return self.cipher_suite.encrypt(password)
 
     def decrypt_password(self, encrypted_password):
-        return self.cipher_suite.decrypt(encrypted_password).decode()
+        try:
+            return self.cipher_suite.decrypt(encrypted_password).decode()
+        except:
+            return "*****"  # Return placeholder for invalid tokens
